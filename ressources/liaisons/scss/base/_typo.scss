@@ -1,0 +1,37 @@
+/**
+* @author Léa Marois
+* @todo Trouver les font-size pour les h1/h2 et title
+*/
+
+/**** Typographie responsive ****/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $fonte;
+  line-height: 1;
+  // font-weight: 600;
+}
+// .homepage {
+//   @include fontSize(14px);
+// }
+// .detailPage {
+//   @include fontSize(14px);
+// }
+// .title {
+//   @include fontSize(20px);
+// }
+// h1, .h1{
+
+// }
+// h2, .h2 {
+//   @include fontSize(18px);
+// }
+// .title, h1, .h1, h2, .h2{
+//   font-weight: 800;
+// }
+// .info {
+//   font-weight: 100;
+// }
