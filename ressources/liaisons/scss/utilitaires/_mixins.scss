@@ -1,0 +1,122 @@
+/**
+* @author Ève Février - efevrier@cegep-ste-foy.qc.ca
+* @author Yves Hélie - yves.helie@cegep-ste-foy.qc.ca
+*/
+
+/**
+ * ----------------------------
+ * TABLE DES MATIERES - MIXINS
+ * ----------------------------
+ * Utilitaires de base
+ ** Box sizing
+ ** Clearfix
+ * Accessibilité
+ * Typographie
+ */
+
+/********** Utilitaires de base **********/
+
+/** Box sizing **/
+@mixin border-box-sizing {
+    html {
+        box-sizing: border-box;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+}
+
+/* Clearfix */
+@mixin clearfix {
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+/********* Accessibilité *********/
+
+// Hide only visually, but have it available for screenreaders:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    // Extends the .visuallyhidden class to allow the element to be focusable
+    // when navigated to via the keyboard: https://www.drupal.org/node/897638
+    &.focusable:active,
+    &.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+.visuallyhidden,
+.screen-reader-only {
+    @include visuallyhidden;
+}
+
+
+/******** Typographie *********/
+
+// Fonction pour convertir une valeur de font-size en pixels à son équivalent rem
+@function calculateRem($size) {
+    $remSize: calc($size / 10px);
+    @return #{$remSize}rem;
+};
+
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// Fonction pour attribué light ou dark mode a chaque éléments qui doit changer de couleur
+@function get-color($name, $mode) {
+  @if $mode == 'dark' {
+    @return map-get($dark-mode-colors, $name);
+  } @else {
+    @return map-get($light-mode-colors, $name);
+   }
+}
+// Mixins pour appliqué les bonnes couleurs en light mode et dark mode
+@mixin theme($mode) {
+// Background
+  background-color: get-color(background, $mode);
+
+// Textes
+  color: get-color(text, $mode);
+  a {
+    color: get-color(text, $mode);
+  }
+
+// Elements
+  header, .ctnSearch, input, select, .carte_pays, .back, #borders li {
+    background-color: get-color(elements, $mode);
+  }
+
+//Input
+  input[type=search]::placeholder, option {
+    color: get-color(inputs, $mode);
+  }
+//Icons
+  .ctnSearch::before {
+    background-image: get-color(icon-search, $mode);
+  }
+}
+// Besoin seulement de faire un @inclide theme(dark) ou theme(light) dans la balise approprié
+
+@mixin inputs() {
+  box-shadow: $boxShadow, -2px -2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: $borderRadius;
+}
