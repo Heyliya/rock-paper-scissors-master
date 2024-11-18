@@ -36,7 +36,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   height: 70px;
   @media (min-width:$desktop) {
     width: 150px;
@@ -66,5 +66,8 @@ header {
     @media (min-width:$desktop) {
       @include fontSize(60px, false);
     }  
+  }
+  &--draws {
+    
   }
 }

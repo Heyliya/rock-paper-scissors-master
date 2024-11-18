@@ -479,7 +479,7 @@ header {
   margin-right: 8%;
   margin-top: 30px !important;
 }
-@media (min-width: 601px) {
+@media (min-width: 775px) {
   header {
     height: 150px;
     margin-top: 50px !important;
@@ -489,7 +489,7 @@ header {
 header img {
   width: 100px;
 }
-@media (min-width: 601px) {
+@media (min-width: 775px) {
   header img {
     width: 150px;
     padding: 10px;
@@ -503,11 +503,11 @@ header img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   height: 70px;
   border-radius: 10px;
 }
-@media (min-width: 601px) {
+@media (min-width: 775px) {
   .score {
     width: 150px;
     height: 110px;
@@ -523,7 +523,7 @@ header img {
   font-size: 1rem;
   letter-spacing: 0.1rem;
 }
-@media (min-width: 601px) {
+@media (min-width: 775px) {
   .score--titre {
     font-weight: 400;
     font-size: 20px;
@@ -537,13 +537,12 @@ header img {
   font-size: 40px;
   font-size: 4rem;
 }
-@media (min-width: 601px) {
+@media (min-width: 775px) {
   .score--score {
     font-size: 60px;
     font-size: 6rem;
   }
 }
-
 .hand {
   width: 200px;
   height: 200px;
@@ -572,6 +571,58 @@ header img {
 
 .scissors {
   border-color: hsl(40, 84%, 53%);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_fight {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+  column-gap: 80px;
+  flex-wrap: wrap;
+}
+@media (min-width: 775px) {
+  .game_fight {
+    row-gap: 25px;
+    column-gap: 75px;
+  }
+  .game_fight > *:nth-child(2) {
+    order: 1;
+  }
+}
+.game_fight .game_results {
+  display: flex;
+  flex-direction: column;
+  width: 215px;
+  gap: 20px;
+}
+.game_fight .game_results .result {
+  color: white;
+  font-size: 40px;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.game_fight .game_results .play_again {
+  font-size: 18px;
+  font-size: 1.8rem;
+  letter-spacing: 0.18rem;
+  background-color: white;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: hsl(229, 25%, 31%);
+  height: 45px;
+  border-radius: 10px;
 }
 
 .attribution {
