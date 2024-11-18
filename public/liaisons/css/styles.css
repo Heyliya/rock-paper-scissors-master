@@ -467,19 +467,6 @@ body {
   line-height: 1;
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
-
-body {
-  background: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-}
-
 header {
   display: flex;
   flex-direction: row;
@@ -555,6 +542,49 @@ header img {
     font-size: 60px;
     font-size: 6rem;
   }
+}
+
+.hand {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #E4E4E4;
+  border: 25px solid yellow;
+  box-sizing: border-box;
+  border-width: 25px;
+  border-style: solid;
+  display: flex;
+  cursor: pointer;
+}
+.hand img {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.paper {
+  border-color: hsl(230, 89%, 65%);
+}
+
+.rock {
+  border-color: hsl(349, 70%, 56%);
+}
+
+.scissors {
+  border-color: hsl(40, 84%, 53%);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  background: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,32 @@
+.hand {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: #E4E4E4;
+border: 25px solid yellow;
+box-sizing: border-box;
+// border-radius: 25px;
+border-width: 25px;
+border-style: solid;
+display: flex;
+
+  img {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+  cursor: pointer;
+}
+
+.paper {
+  border-color: hsl(230, 89%, 65%);
+}
+
+.rock {
+  border-color: hsl(349, 70%, 56%);
+}
+
+.scissors {
+  border-color: hsl(40, 84%, 53%);
+}
+
