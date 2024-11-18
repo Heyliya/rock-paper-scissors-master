@@ -26,18 +26,24 @@
     <img src="liaisons/images/logo.svg" alt="Rock Paper Scissors">
     <div class="score">
       <p class="score--titre">SCORE</p>
-      <p id="score" class="score--score">13</p>
+      <p class="score--score"><span id="score_wins">0</span>/<span id="score_gamesPlayed">0</span></p>
+      <p class="score--draws">draws: <span id="score_draws"></span></p>
     </div>
   </header>
   <main>
-    <div id="paper_p" class="hand player_hand paper base" data-hand="paper">
-      <img src="liaisons/images/icon-paper.svg" alt="paper">
+    <div class="game_select">
+      <div class="hand player_hand paper base" data-hand="paper">
+        <img src="liaisons/images/icon-paper.svg" alt="paper">
+      </div>
+      <div class="hand player_hand rock base" data-hand="rock">
+        <img src="liaisons/images/icon-rock.svg" alt="rock">
+      </div>
+      <div class="hand player_hand scissors base" data-hand="scissors">
+        <img src="liaisons/images/icon-scissors.svg" alt="scissors">
+      </div>
     </div>
-    <div id="rock_p" class="hand player_hand rock base" data-hand="rock">
-      <img src="liaisons/images/icon-rock.svg" alt="rock">
-    </div>
-    <div id="scissors_p" class="hand player_hand scissors base" data-hand="scissors">
-      <img src="liaisons/images/icon-scissors.svg" alt="scissors">
+    <div class="game_fight">
+      
     </div>
   </main>
   
