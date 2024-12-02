@@ -42,7 +42,8 @@ function init() {
 }
 
 function play(event) {
-  
+  game_fight.innerHTML = "";
+  game_fight.style.display = "none";
   // Get player choice
   
   let player_game_select = event.target.closest('.player_hand');
@@ -65,10 +66,12 @@ function play(event) {
   // Display computer choice
   game_fight.appendChild(computer_hand_html);
 
-  let results = referee(player_hand_value, computer_hand_value);
-  score(results);
-
-  game_select.style.display = "none";
+  setTimeout(() => {
+    let results = referee(player_hand_value, computer_hand_value);
+    score(results);
+    }, (0.5 * 1000));
+  transition(game_select, 0.5, "out");
+  transition(game_fight, 0.5, "in", 0.5);
 }
 
 function referee(player_hand, computer_hand) {
@@ -129,7 +132,35 @@ function displayResults(result) {
   game_fight.appendChild(game_results);
 }
 
-function reset() {
-  game_fight.innerHTML = "";
-  game_select.style.display = "flex";
+function reset() {game_select
+  transition(game_fight, 0.5, "out");
+  transition(game_select, 0.5, "in", 0.5);
+}
+
+function transition(element, time, inOut, delay = 0) {
+  if (inOut === "out") {
+    element.style.display = "flex";
+    element.style.opacity = "1";
+    element.style.transition = `opacity ${time}s ease-${inOut}`;
+    element.style.opacity = "0";
+    setTimeout(() => {
+      element.style.display = "none"
+    }, time * 1000);
+  } else if (inOut === "in") {
+    element.style.opacity = "0";
+    if (delay > 0) {
+      setTimeout(() => {
+      element.style.display = "flex"
+      }, (delay * 1000)-100);
+      setTimeout(() => {
+        element.style.transition = `opacity ${time}s ease-${inOut}`;
+        element.style.opacity = "1";
+      }, delay * 1000);
+    } else { 
+      transition = `opacity ${time}s ${ease}`;
+      element.style.opacity = "1";
+      element.style.display = "flex"
+    }
+  }
+
 }
