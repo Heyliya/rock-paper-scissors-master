@@ -69,7 +69,8 @@ function play(event) {
   setTimeout(() => {
     let results = referee(player_hand_value, computer_hand_value);
     score(results);
-    }, (0.5 * 1000));
+    displayResults(results);
+  }, (2 * 1000));
   transition(game_select, 0.5, "out");
   transition(game_fight, 0.5, "in", 0.5);
 }
@@ -87,8 +88,8 @@ function referee(player_hand, computer_hand) {
   }
 }
 
-function score(result) { 
-  switch (result) {
+function score(results) { 
+  switch (results) {
     case "win":
       player_score++;
       score_wins.innerHTML = player_score;
@@ -104,7 +105,6 @@ function score(result) {
       score_draws.innerHTML = total_draws;
       break;
   }
-  displayResults(result);
 }
 
 function displayResults(result) {
@@ -127,9 +127,11 @@ function displayResults(result) {
   play_again.className = "play_again";
   play_again.innerHTML = "Play Again";
   play_again.addEventListener('click', reset.bind(this));
-  game_results.appendChild(play_again);
-
   game_fight.appendChild(game_results);
+  
+  setTimeout(() => {
+    game_results.appendChild(play_again);
+  }, (1 * 1000));
 }
 
 function reset() {game_select
