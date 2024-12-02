@@ -1,6 +1,10 @@
 .hand {
-width: 200px;
-height: 200px;
+width: 150px;
+height: 150px;
+@media (min-width:$desktop) {
+  width: 200px;
+  height: 200px;
+}  
 border-radius: 50%;
 background-color: #E4E4E4;
 border: 25px solid yellow;
@@ -40,29 +44,41 @@ main {
 .game_select {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  @media (min-width:$desktop) {
+    justify-content: space-between;
+  }  
   flex-wrap: wrap;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   background-image: url(../images/bg-triangle.svg);
   background-repeat: no-repeat;
   background-position: center;
-  .hand {
-    margin: auto;
+  background-size: 50%;
+  .ctnLastHand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
+  // .hand {
+  //   margin: auto;
+  // }
 }
 
 .game_fight {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   row-gap: 25px;
-  column-gap: 80px;
   flex-wrap: wrap;
+  width: 65%;
 
   @media (min-width:$desktop) {
+    width: 700px;
     row-gap: 25px;
-    column-gap: 75px;
+    justify-content: space-between;
+    // column-gap: 75px;
     &>*:nth-child(2) {
       order: 1;
     }
@@ -94,4 +110,14 @@ main {
     }
   }
 
+}
+main {
+  position: relative;
+
+  .game_select, .game_fight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
